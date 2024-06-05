@@ -7,7 +7,7 @@ import {
     GenerationReporter,
 } from "okareo-ts-sdk";
 
-import core from "@actions/core";
+import * as core from "@actions/core";
 
 const OKAREO_API_KEY = process.env.OKAREO_API_KEY;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
@@ -92,7 +92,7 @@ const main = async () => {
 
 
 	} catch (error) {
-		core.setFailed("CI failed because: " + error)
+		core.setFailed("CI failed because: " + error.message);
 	}
 }
 main();
