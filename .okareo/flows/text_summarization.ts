@@ -15,14 +15,6 @@ const PROJECT_NAME = "Global";
 const MODEL_NAME = "Text Summarizer";
 
 
-const report_definition = {
-	metrics_min: {
-		"coherence": 4.0,
-		"consistency": 4.0,
-		"fluency": 4.0,
-		"relevance": 4.0,
-	}
-};
 
 const USER_PROMPT_TEMPLATE = "{input}"
 const SUMMARIZATION_CONTEXT_TEMPLATE = "You will be provided with text. Summarize the text in 1 simple sentence."
@@ -39,7 +31,7 @@ const main = async () => {
 		const webbizz_articles_absolute_path = path.resolve("./.okareo/flows/webbizz_3_articles.jsonl");
         //TODO: change scenario name as it doesn't need updating reach time
 		const scenario: any = await okareo.upload_scenario_set({
-			name: "Webbizz Articles Scenario42",
+			name: "Webbizz Articles Scenario",
 			file_path: webbizz_articles_absolute_path,
 			project_id: project_id,
 		});
@@ -76,6 +68,16 @@ const main = async () => {
 				"relevance_summary"
 			]
 		} as RunTestProps);
+
+		const report_definition = {
+			metrics_min: {
+				"coherence": 4.0,
+				"consistency": 4.0,
+				"fluency": 4.0,
+				"relevance": 4.0,
+			}
+		};
+
 
 		const reporter = new GenerationReporter({
 				eval_run :eval_run, 
