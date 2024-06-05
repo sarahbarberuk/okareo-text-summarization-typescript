@@ -31,4 +31,4 @@ jobs:
       - name: Text Summarization Evaluation
         run: |
           okareo -v
-          okareo run -f text_summarization
+          okareo run -d -f text_summarization
