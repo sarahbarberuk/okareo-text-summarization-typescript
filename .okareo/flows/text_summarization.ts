@@ -14,11 +14,8 @@ const UNIQUE_BUILD_ID = (process.env.DEMO_BUILD_ID || `local.${(Math.random() + 
 const PROJECT_NAME = "Global";
 const MODEL_NAME = "Text Summarizer";
 
-
-
 const USER_PROMPT_TEMPLATE = "{input}"
 const SUMMARIZATION_CONTEXT_TEMPLATE = "You will be provided with text. Summarize the text in 1 simple sentence."
-
 
 const main = async () => {
 	try {
@@ -46,8 +43,8 @@ const main = async () => {
 			type: "openai",
 			model_id:"gpt-3.5-turbo",
 			temperature:0,
-			system_prompt_template:USER_PROMPT_TEMPLATE,
-			user_prompt_template:SUMMARIZATION_CONTEXT_TEMPLATE,
+			system_prompt_template:SUMMARIZATION_CONTEXT_TEMPLATE,
+			user_prompt_template:USER_PROMPT_TEMPLATE,
 		} as OpenAIModel,
 		update: true,
 		});
