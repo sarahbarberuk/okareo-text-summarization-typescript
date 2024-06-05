@@ -28,6 +28,10 @@ jobs:
       - name: Okareo Action
         uses: okareo-ai/okareo-action@v2.5
       
+      - name: Install GitHub Actions core
+        run: |
+          npm install @actions/core
+          
       - name: Text Summarization Evaluation
         run: |
           okareo -v
