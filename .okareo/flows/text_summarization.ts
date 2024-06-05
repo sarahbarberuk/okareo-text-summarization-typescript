@@ -33,7 +33,6 @@ const main = async () => {
 			project_id: project_id,
 		});
 
-
 		//differences from python: these things didn't exist. do need them? : tags, project_id, models.type, update. and what should they be set as?
 	    const model = await okareo.register_model({
 		name: MODEL_NAME,
