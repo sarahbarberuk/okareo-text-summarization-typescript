@@ -13,7 +13,7 @@ on:
 
 
 jobs:
-  text-summarization:
+  summarization:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -26,9 +26,8 @@ jobs:
         uses: actions/checkout@v4    
 
       - name: Okareo Action
-        uses: okareo-ai/okareo-action@v2.3
+        uses: okareo-ai/okareo-action@v2.4
       
       - name: Text Summarization Evaluation
         run: |
           okareo -v
-          okareo run -d -f text_summarization
