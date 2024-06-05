@@ -7,6 +7,8 @@ import {
     GenerationReporter,
 } from "okareo-ts-sdk";
 
+import core from "@actions/core";
+
 const OKAREO_API_KEY = process.env.OKAREO_API_KEY;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const UNIQUE_BUILD_ID = (process.env.DEMO_BUILD_ID || `local.${(Math.random() + 1).toString(36).substring(7)}`);
