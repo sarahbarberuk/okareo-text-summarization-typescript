@@ -1,0 +1,8 @@
+
+### Node ###
+.okareo/node_modules/
+.okareo/package-lock.json
+
+### Typescript ###
+.okareo/dist/
+.okareo/tsconfig.json
