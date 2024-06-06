@@ -2,6 +2,7 @@ import {
 	Okareo, 
 	RunTestProps, 
 	components,
+	SeedData,
     TestRunType, 
     OpenAIModel,
     GenerationReporter,
@@ -42,7 +43,7 @@ const main = async () => {
 		    })
 		];
 
-        const senario: any = await okareo.create_scenario_set(
+        const scenario: any = await okareo.create_scenario_set(
             {
             name: "Webbizz Articles for Text Summarization Scenario Set",
             project_id: project_id,
