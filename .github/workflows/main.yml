@@ -3,7 +3,7 @@ env:
   DEMO_BUILD_ID: ${{ github.run_number }}
   OKAREO_API_KEY: ${{ secrets.OKAREO_API_KEY }}
   OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-  OKAREO_PROJECT_ID: ${{ secrets.OKAREO_PROJECT_ID }}
+#  OKAREO_PROJECT_ID: ${{ secrets.OKAREO_PROJECT_ID }}
   
 on:
   push:

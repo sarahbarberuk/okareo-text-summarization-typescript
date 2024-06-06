@@ -21,13 +21,15 @@ const SUMMARIZATION_CONTEXT_TEMPLATE = "You will be provided with text. Summariz
 
 const main = async () => {
 	try {
-		const okareo = new Okareo({api_key:process.env.OKAREO_API_KEY });
+		const okareo = new Okareo({api_key: OKAREO_API_KEY });
 
         const pData: any[] = await okareo.getProjects();
 		const project_id = pData.find(p => p.name === PROJECT_NAME)?.id;
 
-		const path = require( "path" );
-		const webbizz_articles_absolute_path = path.resolve("./.okareo/flows/webbizz_3_articles.jsonl");
+		//const path = require( "path" );
+		//const webbizz_articles_absolute_path = path.resolve("./.okareo/flows/webbizz_3_articles.jsonl");
+        // modified path
+		const webbizz_articles_absolute_path = "./.okareo/flows/webbizz_3_articles.jsonl";
         //TODO: change scenario name as it doesn't need updating reach time
 		const scenario: any = await okareo.upload_scenario_set({
 			name: "Webbizz Articles Scenario",
@@ -37,17 +39,17 @@ const main = async () => {
 
 		//differences from python: these things didn't exist. do need them? : tags, project_id, models.type, update. and what should they be set as?
 	    const model = await okareo.register_model({
-		name: MODEL_NAME,
-		tags: ["Demo", "Summaries", `Build:${UNIQUE_BUILD_ID}`],
-		project_id: project_id,
-		models: {
-			type: "openai",
-			model_id:"gpt-3.5-turbo",
-			temperature:0,
-			system_prompt_template:SUMMARIZATION_CONTEXT_TEMPLATE,
-			user_prompt_template:USER_PROMPT_TEMPLATE,
-		} as OpenAIModel,
-		update: true,
+			name: MODEL_NAME,
+			tags: ["Demo", "Summaries", `Build:${UNIQUE_BUILD_ID}`],
+			project_id: project_id,
+			models: {
+				type: "openai",
+				model_id:"gpt-3.5-turbo",
+				temperature:0,
+				system_prompt_template:SUMMARIZATION_CONTEXT_TEMPLATE,
+				user_prompt_template:USER_PROMPT_TEMPLATE,
+			} as OpenAIModel,
+			update: true,
 		});
 
 	    //differences from python: these things didn't exist. do need them? : tags,
