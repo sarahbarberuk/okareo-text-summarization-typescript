@@ -25,21 +25,17 @@ const main = async () => {
 		const okareo = new Okareo({api_key: OKAREO_API_KEY });
 		const pData: any[] = await okareo.getProjects();
 		const project_id = pData.find(p => p.name === PROJECT_NAME)?.id;
-		//const path = require( "path" );
-		//const webbizz_articles_absolute_path = path.resolve("./.okareo/flows/webbizz_3_articles.jsonl");
-        // modified path, the SDK should be handling this
+
 		const webbizz_articles_absolute_path = "./.okareo/flows/webbizz_3_articles.jsonl";
-        //TODO: change scenario name as it doesn't need updating reach time
 		const scenario: any = await okareo.upload_scenario_set({
 			name: "Webbizz Articles Scenario",
 			file_path: webbizz_articles_absolute_path,
 			project_id: project_id,
 		});
 
-		//differences from python: these things didn't exist. do need them? : tags, project_id, models.type, update. and what should they be set as?
 	    const model = await okareo.register_model({
 			name: MODEL_NAME,
-			tags: ["Demo", "Summaries", `Build:${UNIQUE_BUILD_ID}`],
+			tags: [`Build:${UNIQUE_BUILD_ID}`],
 			project_id: project_id,
 			models: {
 				type: "openai",
@@ -55,7 +51,7 @@ const main = async () => {
 		const eval_run: components["schemas"]["TestRunItem"] = await model.run_test({
 			model_api_key: OPENAI_API_KEY,
 			name: `${MODEL_NAME} Eval ${UNIQUE_BUILD_ID}`,
-			tags: ["Demo", "Summaries", `Build:${UNIQUE_BUILD_ID}`],
+			tags: [`Build:${UNIQUE_BUILD_ID}`],
 			project_id: project_id,
 			scenario: scenario,
 			calculate_metrics: true,
