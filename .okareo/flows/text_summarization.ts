@@ -99,7 +99,7 @@ const main = async () => {
 		reporter.log();
 		
 		if (!reporter.pass) {
-			core.setFailed("CI failed because the Okareo reporter failed. Details: " + error.message);
+			core.setFailed("CI failed because the Okareo reporter failed.");
 		}
 	} catch (error) {
 		core.setFailed("CI failed because: " + error.message);
