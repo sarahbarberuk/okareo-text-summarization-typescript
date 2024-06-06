@@ -89,9 +89,6 @@ const main = async () => {
 			console.log("The model did not pass the evaluation. Please review the results.");
 			//throw new Error("The model did not pass the evaluation. Please review the results.");
 		}
-
-
-
 	} catch (error) {
 		core.setFailed("CI failed because: " + error.message);
 	}
