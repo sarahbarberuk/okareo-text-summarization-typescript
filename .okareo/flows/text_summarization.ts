@@ -27,7 +27,7 @@ const main = async () => {
 		const project: any[] = await okareo.getProjects();
 		const project_id = project.find(p => p.name === PROJECT_NAME)?.id;
 
-        // create scenario
+        // create scenario set
         const TEST_SEED_DATA = [
 		    SeedData({
 		        input:"WebBizz is dedicated to providing our customers with a seamless online shopping experience. Our platform is designed with user-friendly interfaces to help you browse and select the best products suitable for your needs. We offer a wide range of products from top brands and new entrants, ensuring diversity and quality in our offerings. Our 24/7 customer support is ready to assist you with any queries, from product details, shipping timelines, to payment methods. We also have a dedicated FAQ section addressing common concerns. Always ensure you are logged in to enjoy personalized product recommendations and faster checkout processes.",  
@@ -50,6 +50,14 @@ const main = async () => {
             seed_data: TEST_SEED_DATA
             }
         );
+
+        //or, upload scenario set from file
+        // const webbizz_articles_absolute_path = "./.okareo/flows/webbizz_3_articles.jsonl";
+		// const scenario: any = await okareo.upload_scenario_set({
+		// 	name: "Webbizz Articles Scenario",
+		// 	file_path: webbizz_articles_absolute_path,
+		// 	project_id: project_id,
+		// });
 
 	    const model = await okareo.register_model({
 			name: MODEL_NAME,
