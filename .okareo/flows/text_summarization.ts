@@ -45,7 +45,7 @@ const main = async () => {
 
         const scenario: any = await okareo.create_scenario_set(
             {
-            name: "Webbizz Articles for Text Summarization Scenario Set",
+            name: "Webbizz Articles for Text Summarization Scenario Set 2",
             project_id: project_id,
             seed_data: TEST_SEED_DATA
             }
