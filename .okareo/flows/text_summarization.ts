@@ -66,7 +66,7 @@ const main = async () => {
 			models: {
 				type: "openai",
 				model_id:"gpt-3.5-turbo",
-				temperature:0.5,
+				temperature:1.5,
 				system_prompt_template:SUMMARIZATION_CONTEXT_TEMPLATE,
 				user_prompt_template:USER_PROMPT_TEMPLATE,
 			} as OpenAIModel,
