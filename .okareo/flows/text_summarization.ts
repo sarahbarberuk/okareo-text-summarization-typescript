@@ -9,7 +9,10 @@ import {
 
 import * as core from "@actions/core";
 
-const OKAREO_API_KEY = process.env.OKAREO_API_KEY;
+//const OKAREO_API_KEY = process.env.OKAREO_API_KEY;
+// I'm going to throw this away as soon as I can
+const OKAREO_API_KEY = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYyNDNmYWY3In0.eyJzdWIiOiJiNzk1MzdiYy0wNGVmLTQyMGQtODNhYS05NDQxODhkN2Y5MjgiLCJ0eXBlIjoidGVuYW50QWNjZXNzVG9rZW4iLCJ0ZW5hbnRJZCI6ImE0MGFjNTM1LThkNjMtNDg4Yi04MGI2LTI0YzY0YmJmNjQwMyIsImFwcGxpY2F0aW9uSWQiOiJmY2Q3ZGQzNy0yZjgxLTQ5YTAtOGI0My1kZTQxZTZjODA5Y2YiLCJyb2xlcyI6WyJGRVRDSC1ST0xFUy1CWS1BUEkiXSwicGVybWlzc2lvbnMiOlsiRkVUQ0gtUEVSTUlTU0lPTlMtQlktQVBJIl0sImF1ZCI6IjYyNDNmYWY3LTk2YzYtNDgxNS1iOTMzLWNlZGY5ZGY1Yjg5MCIsImlzcyI6Imh0dHBzOi8vYXV0aC5va2FyZW8uY29tIiwiaWF0IjoxNzE3NjM5NjIxfQ.fq2q5keskyfVyZozY7VA25s14iEjQ0pWAEapwJ1AVMnvM070O8cSESu3XRi36RUhgVoXU9eBRKQpSRtrqOl40FqVtpo2Vu_RGKSHYZBcdC1PtYG9gNDDr3Bfp9lfemAOyAjHdNGRfVRp7cvkVwHlZBMu95Ct9U-o_K0MOeizBp3j3hOv6rJjwFzDpaozxCcWeEb9fifZ1O5KMx29bZCQQWoaCm0rsLnfR-IPh5DVTY72H1i1bEbSPVDw9tuUGIV4ZFVs7EjxyOZPQtV-UTBXPAq8yHJc2DICrzQ2bU07bXWbxfhrNezB-65QnQpQ07oyzDUn4GSlvCrrMVdwRjg7LQ";
+
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const UNIQUE_BUILD_ID = (process.env.DEMO_BUILD_ID || `local.${(Math.random() + 1).toString(36).substring(7)}`);
 
@@ -22,7 +25,7 @@ const SUMMARIZATION_CONTEXT_TEMPLATE = "You will be provided with text. Summariz
 const main = async () => {
 	try {
 		const okareo = new Okareo({api_key: OKAREO_API_KEY });
-		console.log('Okareo Instance Created', (OKAREO_API_KEY.length > 10) ? 'KEY PRESENT' : 'MISSING KEY');
+		console.log('OpenAI KEY', (OPENAI_API_KEY.length > 10) ? 'KEY PRESENT' : 'MISSING KEY');
         const pData: any[] = await okareo.getProjects();
 		console.log('Project Data', pData);
 		const project_id = pData.find(p => p.name === PROJECT_NAME)?.id;
