@@ -17,6 +17,7 @@ const UNIQUE_BUILD_ID = (process.env.DEMO_BUILD_ID || `local.${(Math.random() + 
 
 const PROJECT_NAME = "Global";
 const MODEL_NAME = "Text Summarizer";
+const SCENARIO_SET_NAME = "Webbizz Articles for Text Summarization";
 
 const USER_PROMPT_TEMPLATE = "{input}"
 const SUMMARIZATION_CONTEXT_TEMPLATE = "You will be provided with text. Summarize the text in 1 simple sentence."
@@ -45,9 +46,9 @@ const main = async () => {
 
         const scenario: any = await okareo.create_scenario_set(
             {
-            name: "Webbizz Articles for Text Summarization Scenario Set",
-            project_id: project_id,
-            seed_data: TEST_SEED_DATA
+            	name: `${SCENARIO_SET_NAME} Scenario Set - ${UNIQUE_BUILD_ID}`,
+	            project_id: project_id,
+	            seed_data: TEST_SEED_DATA
             }
         );
 
