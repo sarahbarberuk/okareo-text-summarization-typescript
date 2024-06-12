@@ -94,10 +94,10 @@ const main = async () => {
 		// reporting
 		const report_definition = {
 			metrics_min: {
-				"coherence": 4.0,
-				"consistency": 4.0,
-				"fluency": 4.0,
-				"relevance": 4.0,
+				"coherence": 4,
+				"consistency": 4,
+				"fluency": 4,
+				"relevance": 4,
 			}
 		};
 
