@@ -47,7 +47,7 @@ const main = async () => {
         const scenario: any = await okareo.create_scenario_set(
             {
             	name: `${SCENARIO_SET_NAME} Scenario Set - ${UNIQUE_BUILD_ID}`,
-	            project_id: project_id,
+            	project_id: project_id,
 	            seed_data: TEST_SEED_DATA
             }
         );
