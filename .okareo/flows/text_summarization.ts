@@ -45,7 +45,7 @@ const main = async () => {
 
         const scenario: any = await okareo.create_scenario_set(
             {
-            name: "Webbizz Articles for Text Summarization Scenario Set 8373",
+            name: "Webbizz Articles for Text Summarization Scenario Set",
             project_id: project_id,
             seed_data: TEST_SEED_DATA
             }
@@ -94,10 +94,10 @@ const main = async () => {
 		// reporting
 		const report_definition = {
 			metrics_min: {
-				"coherence": 4,
-				"consistency": 4,
-				"fluency": 4,
-				"relevance": 4,
+				"coherence": 4.0,
+				"consistency": 4.0,
+				"fluency": 4.0,
+				"relevance": 4.0,
 			}
 		};
 
